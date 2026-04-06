@@ -45,9 +45,26 @@ public class RockPaperScissors {
         computerChoice=choices[random.nextInt(choices.length)];
         System.out.println("Computer chose " + computerChoice);
     }
+
+    void winningCondition(){
+        String playerChoice;
+        if(choice == 1) playerChoice="Rock";
+        else if(choice == 2) playerChoice="Paper";
+        else playerChoice="Scissor";
+
+        if(playerChoice.equals(computerChoice)){
+            System.out.println("Draw!");
+        } else if((playerChoice.equals("Rock") && computerChoice.equals("Scissor")) || (playerChoice.equals("Paper") && computerChoice.equals("Rock")) || (playerChoice.equals("Scissor") && computerChoice.equals("Paper"))){
+            System.out.println("You Won!");
+        } else{
+            System.out.println("You Lose!");
+        }
+    }
+
     public static void main(String[] args) {
         RockPaperScissors game = new RockPaperScissors();
         game.playerInput();
         game.CompInput();
+        game.winningCondition();
     }
 }
